@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class Landing extends BaseController
 {
-    public function index()
+    public function home()
     {
-        return view('landing.layout');
+        $module = 'Home';
+        return view('landing.home', compact('module'));
     }
 }
