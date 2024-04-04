@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/', 'Landing@home')->name('home');
+    Route::get('/artikel', 'Landing@artikel')->name('artikel');
 });

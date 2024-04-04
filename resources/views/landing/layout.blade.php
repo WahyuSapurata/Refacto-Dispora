@@ -36,14 +36,21 @@
 
 <body data-kt-name="metronic" id="kt_body" data-bs-spy="scroll" data-bs-target="#kt_landing_menu"
     class="bg-white position-relative app-blank">
+
+    <div id="loader">
+        <img class="spinner" src="{{ asset('Logo_dispora-dark.png') }}" alt="Spinner">
+        <div class="custom-loader"></div>
+    </div>
+
+
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root" id="kt_app_root">
         <!--begin::Header Section-->
         <div class="mb-0" id="home">
             <!--begin::Wrapper-->
             <div class="position-relative">
-                <div class="position-absolute w-100 z-index-n2">
-                    <img src="{{ asset('bg.jpg') }}" loading="lazy" class="w-100 backgriund-landing" alt="">
+                <div class="position-absolute w-100 z-index-n2 {{ $module == 'Home' ? '' : 'bg-other' }}">
+                    <img src="{{ asset('bg.jpg') }}" class="w-100 backgriund-landing" alt="">
                 </div>
                 <!--begin::Header-->
                 <div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header"
@@ -76,7 +83,7 @@
                                 <a href="">
                                     <img alt="Logo" src="{{ asset('logo_dispora.png') }}"
                                         class="logo-default h-45px h-lg-65px" />
-                                    <img alt="Logo" src="{{ asset('Logo_dispora.png') }}"
+                                    <img alt="Logo" src="{{ asset('Logo_dispora-dark.png') }}"
                                         class="logo-sticky h-40px h-lg-60px" />
                                 </a>
                                 <!--end::Logo image-->
@@ -97,16 +104,18 @@
                                         <!--begin::Menu item-->
                                         <div class="menu-item">
                                             <!--begin::Menu link-->
-                                            <a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="#home"
-                                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
+                                            <a class="menu-link nav-link {{ $module == 'Home' ? 'active' : '' }} py-3 px-4 px-xxl-6"
+                                                href="{{ route('home') }}" data-kt-scroll-toggle="true"
+                                                data-kt-drawer-dismiss="true">Home</a>
                                             <!--end::Menu link-->
                                         </div>
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
                                         <div class="menu-item">
                                             <!--begin::Menu link-->
-                                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Artikel</a>
+                                            <a class="menu-link nav-link {{ $module == 'Artikel' ? 'active' : '' }} py-3 px-4 px-xxl-6"
+                                                href="{{ route('artikel') }}" data-kt-scroll-toggle="true"
+                                                data-kt-drawer-dismiss="true">Artikel</a>
                                             <!--end::Menu link-->
                                         </div>
                                         <!--end::Menu item-->
@@ -183,13 +192,7 @@
                     data-kt-sticky="true" data-kt-sticky-name="landing-partner"
                     data-kt-sticky-offset="{default: '200px', lg: '300px'}">
                     <!--begin::Heading-->
-                    <div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
-                        <!--begin::Title-->
-                        <h1 class="text-white lh-base fw-bolder fs-3x fs-lg-4x mb-15">Dinas Pemuda Dan Olahraga
-                            <br />Kota Makassar
-                        </h1>
-                        <!--end::Title-->
-                    </div>
+                    @yield('heading')
                 </div>
                 <!--end::Landing hero-->
             </div>
@@ -200,7 +203,7 @@
         <!--begin::How It Works Section-->
         @yield('content')
 
-        <div class="pt-20 mb-20">
+        <div class="mb-5">
             <!--begin::Container-->
             <div class="container">
                 <!--end::Heading-->
@@ -278,7 +281,7 @@
                     </div>
                     <!--end::Menu-->
                     <!--begin::Separator-->
-                    <div class="landing-dark-separator mt-12 mb-12"></div>
+                    <div class="landing-dark-separator mt-5 mb-5"></div>
                     <!--end::Separator-->
                     <!--begin::Title-->
                     <h3 class="fs-4 fw-bloder text-white" data-kt-scroll-offset="{default: 125, lg: 150}">
@@ -346,17 +349,12 @@
     <!--end::Javascript-->
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            @if (Session::has('status'))
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Mantap',
-                    text: @json(Session::get('message')),
-                    showConfirmButton: false,
-                    timer: 3000
-                })
-            @endif
-        });
+        document.onreadystatechange = function() {
+            if (document.readyState === "complete") {
+                // Ketika semua proses load tampilan selesai, sembunyikan loader
+                document.getElementById('loader').style.display = 'none';
+            }
+        };
     </script>
 
 </body>
