@@ -1,3 +1,7 @@
+@php
+    $dataKategori = DB::table('kategoris')->get();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <!--begin::Head-->
@@ -25,10 +29,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link href="{{ asset('admin/assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('admin/assets/plugins/custom/jquery-ui/jquery-ui.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('admin/assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/custom/jquery-ui/jquery-ui.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -49,9 +53,7 @@
         <div class="mb-0" id="home">
             <!--begin::Wrapper-->
             <div class="position-relative">
-                <div class="position-absolute w-100 z-index-n2 {{ $module == 'Home' ? '' : 'bg-other' }}">
-                    <img src="{{ asset('bg.jpg') }}" class="w-100 backgriund-landing" alt="">
-                </div>
+                @yield('head-background')
                 <!--begin::Header-->
                 <div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header"
                     data-kt-sticky-offset="{default: '200px', lg: '300px'}">
@@ -100,7 +102,7 @@
                                     data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav_wrapper'}">
                                     <!--begin::Menu-->
                                     <div class="menu menu-column flex-nowrap menu-rounded menu-lg-row menu-title-gray-500 menu-state-title-primary nav nav-flush fs-5 fw-semibold"
-                                        id="kt_landing_menu" style="align-items: center">
+                                        id="kt_landing_menu" data-kt-menu="true" style="align-items: center">
                                         <!--begin::Menu item-->
                                         <div class="menu-item">
                                             <!--begin::Menu link-->
@@ -122,50 +124,129 @@
                                         <!--begin::Menu item-->
                                         <div class="menu-item">
                                             <!--begin::Menu link-->
-                                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Event</a>
+                                            <a class="menu-link nav-link {{ $module == 'Event' ? 'active' : '' }} py-3 px-4 px-xxl-6"
+                                                href="{{ route('event-landing') }}" data-kt-scroll-toggle="true"
+                                                data-kt-drawer-dismiss="true">Event</a>
                                             <!--end::Menu link-->
                                         </div>
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
                                         <div class="menu-item">
                                             <!--begin::Menu link-->
-                                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Sarana</a>
+                                            <a class="menu-link nav-link {{ $module == 'Sarana' ? 'active' : '' }} py-3 px-4 px-xxl-6"
+                                                href="{{ route('sarana-landing') }}" data-kt-scroll-toggle="true"
+                                                data-kt-drawer-dismiss="true">Sarana</a>
                                             <!--end::Menu link-->
                                         </div>
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
                                         <div class="menu-item">
                                             <!--begin::Menu link-->
-                                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Daleri</a>
+                                            <a class="menu-link nav-link {{ $module == 'Galeri' ? 'active' : '' }} py-3 px-4 px-xxl-6"
+                                                href="{{ route('galeri-landing') }}" data-kt-scroll-toggle="true"
+                                                data-kt-drawer-dismiss="true">Galeri</a>
                                             <!--end::Menu link-->
                                         </div>
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
                                         <div class="menu-item">
                                             <!--begin::Menu link-->
-                                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Open
+                                            <a class="menu-link nav-link {{ $module == 'Open Data' ? 'active' : '' }} py-3 px-4 px-xxl-6"
+                                                href="{{ route('opendata-landing') }}" data-kt-scroll-toggle="true"
+                                                data-kt-drawer-dismiss="true">Open
                                                 Data</a>
                                             <!--end::Menu link-->
                                         </div>
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
-                                        <div class="menu-item">
+                                        <div class="menu-item" data-kt-menu-trigger="hover"
+                                            data-kt-menu-placement="right-start">
                                             <!--begin::Menu link-->
                                             <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Program</a>
+                                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">
+                                                <span class="menu-title">Program</span>
+                                                <span class="menu-arrow"></span>
+                                            </a>
+                                            <!--begin::Menu sub-->
+                                            <div class="menu-sub menu-sub-dropdown p-3 w-200px">
+                                                <!--begin::Menu item-->
+                                                @foreach ($dataKategori as $item)
+                                                    <div class="menu-item">
+                                                        <a href="{{ route('program', ['params' => $item->slug]) }}"
+                                                            class="menu-link px-1 py-3">
+                                                            <span class="menu-title">{{ $item->nama_kategori }}</span>
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+                                                <!--end::Menu item-->
+                                            </div>
+                                            <!--end::Menu sub-->
                                             <!--end::Menu link-->
                                         </div>
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
-                                        <div class="menu-item">
+                                        <div class="menu-item" data-kt-menu-trigger="hover"
+                                            data-kt-menu-placement="right-start">
                                             <!--begin::Menu link-->
                                             <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Tentang
-                                                Kami</a>
+                                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">
+                                                <span class="menu-title">Tentang Kami</span>
+                                                <span class="menu-arrow"></span>
+                                            </a>
+                                            <!--begin::Menu sub-->
+                                            <div class="menu-sub menu-sub-dropdown p-3 w-200px">
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item">
+                                                    <a href="{{ route('kontak-landing') }}"
+                                                        class="menu-link px-1 py-3">
+                                                        <span class="menu-title">Kontak</span>
+                                                    </a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item">
+                                                    <a href="" class="menu-link px-1 py-3">
+                                                        <span class="menu-title">Selayang Pandang</span>
+                                                    </a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item">
+                                                    <a href="" class="menu-link px-1 py-3">
+                                                        <span class="menu-title">Visi Misi</span>
+                                                    </a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item">
+                                                    <a href="" class="menu-link px-1 py-3">
+                                                        <span class="menu-title">Struktur Organisasi</span>
+                                                    </a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item">
+                                                    <a href="" class="menu-link px-1 py-3">
+                                                        <span class="menu-title">Profil Kepala Dinas</span>
+                                                    </a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item">
+                                                    <a href="" class="menu-link px-1 py-3">
+                                                        <span class="menu-title">Pejabat Struktural</span>
+                                                    </a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item">
+                                                    <a href="" class="menu-link px-1 py-3">
+                                                        <span class="menu-title">Tupoksi</span>
+                                                    </a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                            </div>
+                                            <!--end::Menu sub-->
                                             <!--end::Menu link-->
                                         </div>
                                         <!--end::Menu item-->
@@ -188,12 +269,7 @@
                 </div>
                 <!--end::Header-->
                 <!--begin::Landing hero-->
-                <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9"
-                    data-kt-sticky="true" data-kt-sticky-name="landing-partner"
-                    data-kt-sticky-offset="{default: '200px', lg: '300px'}">
-                    <!--begin::Heading-->
-                    @yield('heading')
-                </div>
+                @yield('heading')
                 <!--end::Landing hero-->
             </div>
             <!--end::Wrapper-->
@@ -203,94 +279,186 @@
         <!--begin::How It Works Section-->
         @yield('content')
 
-        <div class="mb-5">
-            <!--begin::Container-->
-            <div class="container">
-                <!--end::Heading-->
-                <div class="text-center mb-5">
-                    <!--begin::Title-->
-                    <!--begin::Menu-->
-                    <div class="menu menu-column justify-content-center flex-nowrap menu-rounded menu-lg-row menu-title-gray-500 menu-state-title-primary nav nav-flush fs-5 fw-semibold"
-                        id="kt_landing_menu" style="align-items: center">
-                        <!--begin::Menu item-->
-                        <div class="menu-item">
-                            <!--begin::Menu link-->
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#home"
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
-                            <!--end::Menu link-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item">
-                            <!--begin::Menu link-->
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Artikel</a>
-                            <!--end::Menu link-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item">
-                            <!--begin::Menu link-->
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Event</a>
-                            <!--end::Menu link-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item">
-                            <!--begin::Menu link-->
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Sarana</a>
-                            <!--end::Menu link-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item">
-                            <!--begin::Menu link-->
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Daleri</a>
-                            <!--end::Menu link-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item">
-                            <!--begin::Menu link-->
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Open
-                                Data</a>
-                            <!--end::Menu link-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item">
-                            <!--begin::Menu link-->
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Program</a>
-                            <!--end::Menu link-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item">
-                            <!--begin::Menu link-->
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Tentang
-                                Kami</a>
-                            <!--end::Menu link-->
-                        </div>
-                        <!--end::Menu item-->
+        <!--begin::foothers-->
+        <div class="{{ $module == 'Home' ? '' : 'bg-foother' }}">
+            {{-- @if ($module != 'Home')
+                <div class="position-absolute w-100 z-index-n2">
+                    <div
+                        style="background-image: url('/bg.jpg'); background-size: cover; width: 100%; height: 100%; background-position: bottom;">
                     </div>
-                    <!--end::Menu-->
-                    <!--begin::Separator-->
-                    <div class="landing-dark-separator mt-5 mb-5"></div>
-                    <!--end::Separator-->
+                </div>
+            @endif --}}
+            <div class="mb-20">
+                <!--begin::Container-->
+                <div class="container">
+                    <!--end::Heading-->
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="d-grid gap-5">
+                                <div class="text-start mb-5">
+                                    <!--begin::Title-->
+                                    <h3 class="fs-2hx text-white mt-10" id="clients"
+                                        data-kt-scroll-offset="{default: 125, lg: 150}">
+                                        Dispora Makassar</h3>
+                                    <!--end::Title-->
+                                </div>
+                                <div class="text-white fs-5">Portal informasi Dinas Pemuda dan Olahraga Pemerintah Kota
+                                    Makassar.</div>
+                                <div class="text-white fs-5">
+                                    <div>Email. dispora@makassarkota.go.id</div>
+                                    <div>Telpon. +62411-123456</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="d-grid gap-5">
+                                <div class="text-start mb-5">
+                                    <!--begin::Title-->
+                                    <h3 class="fs-2hx text-white mt-10" id="clients"
+                                        data-kt-scroll-offset="{default: 125, lg: 150}">
+                                        Partner</h3>
+                                    <!--end::Title-->
+                                </div>
+                                <div class="text-white fs-5">
+                                    <ul id="list">
+                                        <li>KONI</li>
+                                        <li>KNPI</li>
+                                        <li>NPC</li>
+                                        <li>PRAMUKA</li>
+                                        <li>KORNI</li>
+                                        <li>PPI Paskib</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-grid gap-5">
+                                <div class="text-start mb-5">
+                                    <!--begin::Title-->
+                                    <h3 class="fs-2hx text-white mt-10" id="clients"
+                                        data-kt-scroll-offset="{default: 125, lg: 150}">
+                                        Makassar Sites</h3>
+                                    <!--end::Title-->
+                                </div>
+                                <div class="text-white fs-5">
+                                    <ul id="list">
+                                        <li>Pemkot Makassar</li>
+                                        <li>Dinas Parawisata</li>
+                                        <li>Dinas Koperasi & UMKM</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Container-->
+            </div>
+
+            <div class="mb-20">
+                <!--begin::Container-->
+                <!--end::Heading-->
+                <div class="text-center mb-8s">
                     <!--begin::Title-->
-                    <h3 class="fs-4 fw-bloder text-white" data-kt-scroll-offset="{default: 125, lg: 150}">
-                        © Copyright Dispora Kota Makassar All Rights Reserved.</h3>
-                    <!--end::Title-->
+                    <h3 class="fs-2hx text-white mt-10" id="clients"
+                        data-kt-scroll-offset="{default: 125, lg: 150}">
+                        Dispora Makassar</h3>
                     <!--end::Title-->
                 </div>
+                <div>
+                    <img class="w-100 mt-5" src="{{ asset('home/poster-10.jpg') }}" alt="">
+                </div>
+                <!--end::Container-->
             </div>
-            <!--end::Container-->
+
+            <div class="mb-5">
+                <!--begin::Container-->
+                <div class="container">
+                    <!--end::Heading-->
+                    <div class="text-center mb-5">
+                        <!--begin::Title-->
+                        <!--begin::Menu-->
+                        <div class="menu menu-column justify-content-center flex-nowrap menu-rounded menu-lg-row menu-title-gray-500 menu-state-title-primary nav nav-flush fs-5 fw-semibold"
+                            id="kt_landing_menu" style="align-items: center">
+                            <!--begin::Menu item-->
+                            <div class="menu-item">
+                                <!--begin::Menu link-->
+                                <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#home"
+                                    data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
+                                <!--end::Menu link-->
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item">
+                                <!--begin::Menu link-->
+                                <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
+                                    data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Artikel</a>
+                                <!--end::Menu link-->
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item">
+                                <!--begin::Menu link-->
+                                <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
+                                    data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Event</a>
+                                <!--end::Menu link-->
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item">
+                                <!--begin::Menu link-->
+                                <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
+                                    data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Sarana</a>
+                                <!--end::Menu link-->
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item">
+                                <!--begin::Menu link-->
+                                <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
+                                    data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Daleri</a>
+                                <!--end::Menu link-->
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item">
+                                <!--begin::Menu link-->
+                                <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
+                                    data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Open
+                                    Data</a>
+                                <!--end::Menu link-->
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item">
+                                <!--begin::Menu link-->
+                                <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
+                                    data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Program</a>
+                                <!--end::Menu link-->
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item">
+                                <!--begin::Menu link-->
+                                <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
+                                    data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Tentang
+                                    Kami</a>
+                                <!--end::Menu link-->
+                            </div>
+                            <!--end::Menu item-->
+                        </div>
+                        <!--end::Menu-->
+                        <!--begin::Separator-->
+                        <div class="landing-dark-separator mt-5 mb-5"></div>
+                        <!--end::Separator-->
+                        <!--begin::Title-->
+                        <h3 class="fs-4 fw-bloder text-white" data-kt-scroll-offset="{default: 125, lg: 150}">
+                            © Copyright Dispora Kota Makassar All Rights Reserved.</h3>
+                        <!--end::Title-->
+                        <!--end::Title-->
+                    </div>
+                </div>
+                <!--end::Container-->
+            </div>
         </div>
         <!--end::foothers-->
 
@@ -330,21 +498,21 @@
     <!--end::Scrolltop-->
     <!--begin::Javascript-->
     <script>
-        var hostUrl = "admin/assets/";
+        var hostUrl = "assets/";
     </script>
     <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="{{ asset('admin/assets/plugins/global/plugins.bundle.js') }}"></script>
-    <script src="{{ asset('admin/assets/plugins/custom/jquery-ui/jquery-ui.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/scripts.bundle.js') }}"></script>
+    <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
+    <script src="{{ asset('assets/plugins/custom/jquery-ui/jquery-ui.js') }}"></script>
+    <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used by this page)-->
-    <script src="{{ asset('admin/assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
-    <script src="{{ asset('admin/assets/plugins/custom/typedjs/typedjs.bundle.js') }}"></script>
+    <script src="{{ asset('assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
+    <script src="{{ asset('assets/plugins/custom/typedjs/typedjs.bundle.js') }}"></script>
     <!--end::Vendors Javascript-->
     <!--begin::Custom Javascript(used by this page)-->
-    <script src="{{ asset('admin/assets/js/custom/landing.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/custom/modals/create-app.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/custom/modals/upgrade-plan.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/landing.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/modals/create-app.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/modals/upgrade-plan.js') }}"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
 
@@ -356,6 +524,7 @@
             }
         };
     </script>
+    @yield('script')
 
 </body>
 <!--end::Body-->

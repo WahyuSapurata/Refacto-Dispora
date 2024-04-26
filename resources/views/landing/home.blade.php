@@ -1,11 +1,20 @@
 @extends('landing.layout')
+@section('head-background')
+    <div class="position-absolute w-100 z-index-n2">
+        <img src="{{ asset('bg.jpg') }}" class="w-100 backgriund-landing" alt="">
+    </div>
+@endsection
 @section('heading')
-    <div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
-        <!--begin::Title-->
-        <h1 class="text-white lh-base fw-bolder fs-3x fs-lg-4x mb-15">Dinas Pemuda Dan Olahraga
-            <br />Kota Makassar
-        </h1>
-        <!--end::Title-->
+    <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9" data-kt-sticky="true"
+        data-kt-sticky-name="landing-partner" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+        <!--begin::Heading-->
+        <div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
+            <!--begin::Title-->
+            <h1 class="text-white lh-base fw-bolder fs-3x fs-lg-4x mb-15">Dinas Pemuda Dan Olahraga
+                <br />Kota Makassar
+            </h1>
+            <!--end::Title-->
+        </div>
     </div>
 @endsection
 @section('content')
@@ -370,86 +379,4 @@
         <!--end::Container-->
     </div>
     <!--end::Youtube-->
-
-    <!--begin::foothers-->
-    <div class="mb-20">
-        <!--begin::Container-->
-        <div class="container">
-            <!--end::Heading-->
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="d-grid gap-5">
-                        <div class="text-start mb-5">
-                            <!--begin::Title-->
-                            <h3 class="fs-2hx text-white mt-10" id="clients"
-                                data-kt-scroll-offset="{default: 125, lg: 150}">
-                                Dispora Makassar</h3>
-                            <!--end::Title-->
-                        </div>
-                        <div class="text-white fs-5">Portal informasi Dinas Pemuda dan Olahraga Pemerintah Kota
-                            Makassar.</div>
-                        <div class="text-white fs-5">
-                            <div>Email. dispora@makassarkota.go.id</div>
-                            <div>Telpon. +62411-123456</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="d-grid gap-5">
-                        <div class="text-start mb-5">
-                            <!--begin::Title-->
-                            <h3 class="fs-2hx text-white mt-10" id="clients"
-                                data-kt-scroll-offset="{default: 125, lg: 150}">
-                                Partner</h3>
-                            <!--end::Title-->
-                        </div>
-                        <div class="text-white fs-5">
-                            <ul id="list">
-                                <li>KONI</li>
-                                <li>KNPI</li>
-                                <li>NPC</li>
-                                <li>PRAMUKA</li>
-                                <li>KORNI</li>
-                                <li>PPI Paskib</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="d-grid gap-5">
-                        <div class="text-start mb-5">
-                            <!--begin::Title-->
-                            <h3 class="fs-2hx text-white mt-10" id="clients"
-                                data-kt-scroll-offset="{default: 125, lg: 150}">
-                                Makassar Sites</h3>
-                            <!--end::Title-->
-                        </div>
-                        <div class="text-white fs-5">
-                            <ul id="list">
-                                <li>Pemkot Makassar</li>
-                                <li>Dinas Parawisata</li>
-                                <li>Dinas Koperasi & UMKM</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end::Container-->
-    </div>
-
-    <div class="mb-20">
-        <!--begin::Container-->
-        <!--end::Heading-->
-        <div class="text-center mb-8s">
-            <!--begin::Title-->
-            <h3 class="fs-2hx text-white mt-10" id="clients" data-kt-scroll-offset="{default: 125, lg: 150}">
-                Dispora Makassar</h3>
-            <!--end::Title-->
-        </div>
-        <div>
-            <img class="w-100 mt-5" src="{{ asset('home/poster-10.jpg') }}" alt="">
-        </div>
-        <!--end::Container-->
-    </div>
 @endsection
