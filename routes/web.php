@@ -45,6 +45,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/profil-landing', 'Landing@profil')->name('profil-landing');
     Route::get('/pejabat-landing', 'Landing@pejabat_struktural')->name('pejabat-landing');
     Route::get('/tupoksi-landing', 'Landing@tupoksi')->name('tupoksi-landing');
+    Route::get('/chart', 'Dashboard@areaChart')->name('chart');
 
     Route::group(['prefix' => 'login', 'middleware' => ['guest'], 'as' => 'login.'], function () {
         Route::get('/login-akun', 'Auth@show')->name('login-akun');

@@ -17,11 +17,11 @@
                                         }
                                     </style>
                                     <path
-                                        d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z" />
+                                        d="M224 32H64C46.3 32 32 46.3 32 64v64c0 17.7 14.3 32 32 32H441.4c4.2 0 8.3-1.7 11.3-4.7l48-48c6.2-6.2 6.2-16.4 0-22.6l-48-48c-3-3-7.1-4.7-11.3-4.7H288c0-17.7-14.3-32-32-32s-32 14.3-32 32zM480 256c0-17.7-14.3-32-32-32H288V192H224v32H70.6c-4.2 0-8.3 1.7-11.3 4.7l-48 48c-6.2 6.2-6.2 16.4 0 22.6l48 48c3 3 7.1 4.7 11.3 4.7H448c17.7 0 32-14.3 32-32V256zM288 480V384H224v96c0 17.7 14.3 32 32 32s32-14.3 32-32z" />
                                 </svg>
                             </div>
-                            <div class="fs-5 fw-bolder text-center text-capitalize">Jumlah Data Penduduk</div>
-                            <div class="text-center fw-bold fs-1">1 Orang</div>
+                            <div class="fs-5 fw-bolder text-center text-capitalize">POSTING</div>
+                            <div class="text-center fw-bold fs-1">{{ $posting }}</div>
                         </div>
                     </div>
                 </div>
@@ -38,11 +38,11 @@
                                         }
                                     </style>
                                     <path
-                                        d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+                                        d="M448 80c8.8 0 16 7.2 16 16V415.8l-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3V96c0-8.8 7.2-16 16-16H448zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z" />
                                 </svg>
                             </div>
-                            <div class="fs-5 fw-bolder text-center text-capitalize">Jumlah Surat Masuk</div>
-                            <div class="text-center fw-bold fs-1">1 Surat</div>
+                            <div class="fs-5 fw-bolder text-center text-capitalize">GALERI</div>
+                            <div class="text-center fw-bold fs-1">{{ $galeri }}</div>
                         </div>
                     </div>
                 </div>
@@ -59,18 +59,104 @@
                                         }
                                     </style>
                                     <path
-                                        d="M215.4 96H144 107.8 96v8.8V144v40.4 89L.2 202.5c1.6-18.1 10.9-34.9 25.7-45.8L48 140.3V96c0-26.5 21.5-48 48-48h76.6l49.9-36.9C232.2 3.9 243.9 0 256 0s23.8 3.9 33.5 11L339.4 48H416c26.5 0 48 21.5 48 48v44.3l22.1 16.4c14.8 10.9 24.1 27.7 25.7 45.8L416 273.4v-89V144 104.8 96H404.2 368 296.6 215.4zM0 448V242.1L217.6 403.3c11.1 8.2 24.6 12.7 38.4 12.7s27.3-4.4 38.4-12.7L512 242.1V448v0c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64v0zM176 160H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H176c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H176c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                                        d="M128 0c13.3 0 24 10.7 24 24V64H296V24c0-13.3 10.7-24 24-24s24 10.7 24 24V64h40c35.3 0 64 28.7 64 64v16 48V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V192 144 128C0 92.7 28.7 64 64 64h40V24c0-13.3 10.7-24 24-24zM400 192H48V448c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V192zM329 297L217 409c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47 95-95c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                                 </svg>
                             </div>
-                            <div class="fs-5 fw-bolder text-center text-capitalize">Jumlah Surat Keluar</div>
-                            <div class="text-center fw-bold fs-1">1 Surat</div>
+                            <div class="fs-5 fw-bolder text-center text-capitalize">EVENT</div>
+                            <div class="text-center fw-bold fs-1">{{ $event }}</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="separator separator-dashed mt-8 mb-5"></div>
+            <div class="row">
+                <!-- Area Chart -->
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Total Postingan Bulanan</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="myAreaChart" height="100vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
         <!--end::Container-->
     </div>
+@endsection
+@section('script')
+    <script>
+        var ctx = document.getElementById('myAreaChart').getContext('2d');
+
+        $(document).ready(async function() {
+            try {
+                // Melakukan permintaan AJAX pertama
+                const res = await $.ajax({
+                    url: '/chart',
+                    method: 'GET'
+                });
+
+                if (res.success === true) {
+                    // Mengosongkan dan mengisi opsi mata_kuliah_select
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: res.message.label,
+                            datasets: [{
+                                label: res.message.label,
+                                data: res.message.data,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            legend: {
+                                display: false
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(tooltipItem) {
+                                        return tooltipItem.yLabel;
+                                    }
+                                }
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                } else {
+                    console.error('Gagal mengambil data:', res.message);
+                }
+            } catch (error) {
+                console.error('Gagal melakukan permintaan AJAX pertama:', error);
+            }
+        });
+    </script>
 @endsection
