@@ -60,8 +60,45 @@
         <div class="row">
             <div class="col-md-6">
                 <form action="">
-
+                    <div class="row mb-10">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Nama anda">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" placeholder="Email anda">
+                        </div>
+                    </div>
+                    <div class="mb-10">
+                        <input type="text" class="form-control" placeholder="Subyek">
+                    </div>
+                    <div class="mb-10">
+                        <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Pesan anda"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary">Kirim Pesan</button>
+                    </div>
                 </form>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-10">
+                    <div class="fs-1 fw-bolder">Say Halo</div>
+                    <div class="fs-5">Email : dispora@makassarkota.go.id</div>
+                    <div class="fs-5">Telepon : +62411-123456</div>
+                </div>
+                <div class="mb-10">
+                    <div class="fs-1 fw-bolder">Cari Kami di</div>
+                    <div class="fs-5">Menara Balaikota Lt. 4 Jln. Jenderal Ahmad Yani No.2 Makassar.</div>
+                </div>
+                <div class="mb-10">
+                    <div class="fs-1 fw-bolder">Media Sosial</div>
+                    <div class="d-flex align-items-center gap-5 mt-3">
+                        <a href=""><i class="bi bi-facebook text-info fs-1"></i></a>
+                        <a href=""><i class="bi bi-tiktok text-dark fs-1"></i></a>
+                        <a href=""><i class="bi bi-twitter text-secondary fs-1"></i></a>
+                        <a href=""><i class="bi bi-instagram text-primary fs-1"></i></a>
+                        <a href=""><i class="bi bi-youtube text-danger fs-1"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

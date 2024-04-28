@@ -39,6 +39,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/program/{params}', 'Landing@program')->name('program');
 
     Route::get('/kontak-landing', 'Landing@kontak')->name('kontak-landing');
+    Route::get('/selayang-landing', 'Landing@selayang_pandang')->name('selayang-landing');
+    Route::get('/visimisi-landing', 'Landing@visi_misi')->name('visimisi-landing');
+    Route::get('/struktur-landing', 'Landing@struktur')->name('struktur-landing');
+    Route::get('/profil-landing', 'Landing@profil')->name('profil-landing');
+    Route::get('/pejabat-landing', 'Landing@pejabat_struktural')->name('pejabat-landing');
+    Route::get('/tupoksi-landing', 'Landing@tupoksi')->name('tupoksi-landing');
 
     Route::group(['prefix' => 'login', 'middleware' => ['guest'], 'as' => 'login.'], function () {
         Route::get('/login-akun', 'Auth@show')->name('login-akun');

@@ -173,7 +173,7 @@
                                                 @foreach ($dataKategori as $item)
                                                     <div class="menu-item">
                                                         <a href="{{ route('program', ['params' => $item->slug]) }}"
-                                                            class="menu-link px-1 py-3">
+                                                            class="menu-link {{ $module == $item->slug ? 'active' : '' }} px-1 py-3">
                                                             <span class="menu-title">{{ $item->nama_kategori }}</span>
                                                         </a>
                                                     </div>
@@ -198,49 +198,55 @@
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item">
                                                     <a href="{{ route('kontak-landing') }}"
-                                                        class="menu-link px-1 py-3">
+                                                        class="menu-link {{ $module == 'Kontak' ? 'active' : '' }} px-1 py-3">
                                                         <span class="menu-title">Kontak</span>
                                                     </a>
                                                 </div>
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item">
-                                                    <a href="" class="menu-link px-1 py-3">
+                                                    <a href="{{ route('selayang-landing') }}"
+                                                        class="menu-link {{ $module == 'Selayang Pandang' ? 'active' : '' }} px-1 py-3">
                                                         <span class="menu-title">Selayang Pandang</span>
                                                     </a>
                                                 </div>
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item">
-                                                    <a href="" class="menu-link px-1 py-3">
+                                                    <a href="{{ route('visimisi-landing') }}"
+                                                        class="menu-link {{ $module == 'Visi Misi' ? 'active' : '' }} px-1 py-3">
                                                         <span class="menu-title">Visi Misi</span>
                                                     </a>
                                                 </div>
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item">
-                                                    <a href="" class="menu-link px-1 py-3">
+                                                    <a href="{{ route('struktur-landing') }}"
+                                                        class="menu-link {{ $module == 'Struktur Organisasi' ? 'active' : '' }} px-1 py-3">
                                                         <span class="menu-title">Struktur Organisasi</span>
                                                     </a>
                                                 </div>
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item">
-                                                    <a href="" class="menu-link px-1 py-3">
+                                                    <a href="{{ route('profil-landing') }}"
+                                                        class="menu-link {{ $module == 'Profil Kepala Dinas' ? 'active' : '' }} px-1 py-3">
                                                         <span class="menu-title">Profil Kepala Dinas</span>
                                                     </a>
                                                 </div>
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item">
-                                                    <a href="" class="menu-link px-1 py-3">
+                                                    <a href="{{ route('pejabat-landing') }}"
+                                                        class="menu-link {{ $module == 'Pejabat Struktural' ? 'active' : '' }} px-1 py-3">
                                                         <span class="menu-title">Pejabat Struktural</span>
                                                     </a>
                                                 </div>
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item">
-                                                    <a href="" class="menu-link px-1 py-3">
+                                                    <a href="{{ route('tupoksi-landing') }}"
+                                                        class="menu-link {{ $module == 'Tupoksi' ? 'active' : '' }} px-1 py-3">
                                                         <span class="menu-title">Tupoksi</span>
                                                     </a>
                                                 </div>

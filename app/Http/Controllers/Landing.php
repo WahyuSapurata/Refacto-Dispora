@@ -170,6 +170,19 @@ class Landing extends BaseController
         $module = $params;
         $dataKategori = Kategori::where('slug', $params)->first();
         $dataPosting = Posting::where('uuid_kategori', $dataKategori->uuid)->paginate(9);
+        $dataPosting->each(function ($item) {
+            // Ambil nama kategori untuk item saat ini
+            $dataKategori = Kategori::where('uuid', $item->uuid_kategori)->first();
+            $dataLike = Like::where('uuid_posting', $item->uuid)->count();
+            $dataView = View::where('uuid_posting', $item->uuid)->count();
+
+            // Jika kategori ditemukan, tambahkan nama kategori ke dalam item
+            if ($dataKategori) {
+                $item->kategori = $dataKategori->nama_kategori;
+            }
+            $item->jumlah_like = $dataLike;
+            $item->jumlah_view = $dataView;
+        });
         return view('landing.program', compact('module', 'dataKategori', 'dataPosting'));
     }
 
@@ -177,5 +190,41 @@ class Landing extends BaseController
     {
         $module = 'Kontak';
         return view('landing.kontak', compact('module'));
+    }
+
+    public function selayang_pandang()
+    {
+        $module = 'Selayang Pandang';
+        return view('landing.selayangpandang', compact('module'));
+    }
+
+    public function visi_misi()
+    {
+        $module = 'Visi Misi';
+        return view('landing.visimisi', compact('module'));
+    }
+
+    public function struktur()
+    {
+        $module = 'Struktur Organisasi';
+        return view('landing.struktur', compact('module'));
+    }
+
+    public function profil()
+    {
+        $module = 'Profil Kepala Dinas';
+        return view('landing.profil', compact('module'));
+    }
+
+    public function pejabat_struktural()
+    {
+        $module = 'Pejabat Struktural';
+        return view('landing.pejabat', compact('module'));
+    }
+
+    public function tupoksi()
+    {
+        $module = 'Tupoksi';
+        return view('landing.tupoksi', compact('module'));
     }
 }
