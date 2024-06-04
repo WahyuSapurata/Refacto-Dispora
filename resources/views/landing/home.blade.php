@@ -40,7 +40,7 @@
                             selain Sulawesi Selatan dan sekitarnya.
                         </div>
                         <div>
-                            <a class="read-more fw-bloder fs-5" href="">read more...</a>
+                            <a class="read-more fw-bloder fs-5" href="{{ route('event-landing') }}">read more...</a>
                         </div>
                         <!--end::Text-->
                     </div>
@@ -73,7 +73,7 @@
                             GRATIS!!
                         </div>
                         <div>
-                            <a class="read-more fw-bloder fs-5" href="">read more...</a>
+                            <a class="read-more fw-bloder fs-5" href="{{ route('event-landing') }}">read more...</a>
                         </div>
                         <!--end::Text-->
                     </div>
@@ -105,48 +105,22 @@
                     <!--begin::Item-->
                     <div class="text-center px-5 py-5">
                         <iframe width="560" height="315" class="card-rounded mw-100"
-                            src="https://www.youtube.com/embed/snIuq52IW-g?si=srqp0rooJKs-S2dc" title="YouTube video player"
+                            src="https://www.youtube.com/embed/yY4UzNzJ0dA?si=WpWRLZzUx0yQoTXx" title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-                        <div class="text-white fs-5">Get ready for a wookond of adrenaline-pumping action in
-                            Makassar!</div>
+                        <div class="text-white fs-5">Makassar International Jet Ski Competition 2023</div>
                     </div>
                     <!--end::Item-->
 
                     <!--begin::Item-->
                     <div class="text-center px-5 py-5">
                         <iframe width="560" height="315" class="card-rounded mw-100"
-                            src="https://www.youtube.com/embed/snIuq52IW-g?si=srqp0rooJKs-S2dc" title="YouTube video player"
+                            src="https://www.youtube.com/embed/aqjRMZGjl4M?si=jPZty5xigJN7VMqR" title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-                        <div class="text-white fs-5">Get ready for a wookond of adrenaline-pumping action in
-                            Makassar!</div>
-                    </div>
-                    <!--end::Item-->
-
-                    <!--begin::Item-->
-                    <div class="text-center px-5 py-5">
-                        <iframe width="560" height="315" class="card-rounded mw-100"
-                            src="https://www.youtube.com/embed/snIuq52IW-g?si=srqp0rooJKs-S2dc" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-                        <div class="text-white fs-5">Get ready for a wookond of adrenaline-pumping action in
-                            Makassar!</div>
-                    </div>
-                    <!--end::Item-->
-
-                    <!--begin::Item-->
-                    <div class="text-center px-5 py-5">
-                        <iframe width="560" height="315" class="card-rounded mw-100"
-                            src="https://www.youtube.com/embed/snIuq52IW-g?si=srqp0rooJKs-S2dc" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-                        <div class="text-white fs-5">Get ready for a wookond of adrenaline-pumping action in
-                            Makassar!</div>
+                        <div class="text-white fs-5">OLAHRAGA ADALAH SOLUSI - SELAMAT HARI OLAHRAGA NASIONAL 2023</div>
                     </div>
                     <!--end::Item-->
 
@@ -207,7 +181,7 @@
                             <!--end::Title-->
                         </div>
                         <iframe width="560" height="315" class="card-rounded mw-100"
-                            src="https://www.youtube.com/embed/snIuq52IW-g?si=srqp0rooJKs-S2dc"
+                            src="https://www.youtube.com/embed/yY4UzNzJ0dA?si=WpWRLZzUx0yQoTXx"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
@@ -216,12 +190,12 @@
                             memukau, dan persaingan yang ketat. Nikmati kembali momen-momen spektakuler ini dalam
                             after movie kami.</div>
                         <div class="d-flex justify-content-center">
-                            <a href="" class="btn-read-more">read more</a>
+                            <a href="{{ route('event-landing') }}" class="btn-read-more">read more</a>
                         </div>
                     </div>
                     <!--end::Item-->
 
-                    <!--begin::Item-->
+                    {{-- <!--begin::Item-->
                     <div class="text-center d-grid gap-10 px-5 py-5">
                         <!--begin::Heading-->
                         <div class="text-center mb-5">
@@ -269,7 +243,7 @@
                             <a href="" class="btn-read-more">read more</a>
                         </div>
                     </div>
-                    <!--end::Item-->
+                    <!--end::Item--> --}}
                 </div>
                 <!--end::Slider-->
 
@@ -305,7 +279,7 @@
     <!--end::Wrapper-->
 
     <!--begin::Youtube-->
-    <div class="mb-20">
+    <div class="mb-20 mt-20 pt-15">
         <!--begin::Container-->
         <div class="container">
             <!--begin::Heading-->

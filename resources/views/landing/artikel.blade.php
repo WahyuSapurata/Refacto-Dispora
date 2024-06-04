@@ -2,6 +2,7 @@
     use Carbon\Carbon;
 @endphp
 @extends('landing.layout')
+@section('background-layout', '100vh')
 @section('head-background')
     <div class="position-absolute w-100 z-index-n2 bg-other">
         <img src="{{ asset('bg.jpg') }}" class="w-100 backgriund-landing" alt="">

@@ -50,7 +50,7 @@
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root" id="kt_app_root">
         <!--begin::Header Section-->
-        <div class="mb-0" id="home">
+        <div class="mb-0" id="home" style="height: @yield('background-layout')">
             <!--begin::Wrapper-->
             <div class="position-relative">
                 @yield('head-background')
