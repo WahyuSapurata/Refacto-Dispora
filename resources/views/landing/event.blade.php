@@ -24,28 +24,21 @@
             </div>
         </div>
         <div class="row" style="row-gap: 20px">
+            @php
+                function potongTeks($teks, $panjang_maks = 200)
+                {
+                    if (strlen($teks) > $panjang_maks) {
+                        $teks = substr($teks, 0, $panjang_maks);
+                        $posisi_spasi_terakhir = strrpos($teks, ' ');
+                        $teks = substr($teks, 0, $posisi_spasi_terakhir);
+                        $teks .= '...';
+                    }
+                    return $teks;
+                }
+            @endphp
+
             @foreach ($data as $item)
                 @php
-                    function potongTeks($teks, $panjang_maks = 200)
-                    {
-                        // Memastikan teks panjangnya lebih dari panjang maksimum
-                        if (strlen($teks) > $panjang_maks) {
-                            // Potong teks hingga panjang maksimum
-                            $teks = substr($teks, 0, $panjang_maks);
-
-                            // Cari posisi spasi terakhir agar tidak memotong kata secara sembarang
-                            $posisi_spasi_terakhir = strrpos($teks, ' ');
-
-                            // Potong lagi hingga spasi terakhir untuk memastikan potongan teks berakhir pada kata
-                            $teks = substr($teks, 0, $posisi_spasi_terakhir);
-
-                            // Tambahkan elipsis untuk menunjukkan bahwa teks dipotong
-                            $teks .= '...';
-                        }
-
-                        return $teks;
-                    }
-
                     $teks_pendek = potongTeks(strip_tags($item->konten));
                 @endphp
                 <div class="col-md-4">

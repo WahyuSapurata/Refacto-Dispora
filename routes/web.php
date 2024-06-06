@@ -89,7 +89,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::delete('/delete-galeri/{params}', 'GaleriController@delete')->name('delete-galeri');
         });
 
-        Route::get('/event-lading', 'EventController@index')->name('event');
+        Route::get('/event', 'EventController@index')->name('event');
         Route::get('/add-view-event', 'EventController@add')->name('add-view-event');
         Route::get('/edit-view-event/{params}', 'EventController@edit')->name('edit-view-event');
         Route::get('/get-event', 'EventController@get')->name('get-event');
