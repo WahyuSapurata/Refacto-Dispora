@@ -154,7 +154,7 @@
                                             <a class="menu-link nav-link {{ $module == 'Open Data' ? 'active' : '' }} py-3 px-4 px-xxl-6"
                                                 href="{{ route('opendata-landing') }}" data-kt-scroll-toggle="true"
                                                 data-kt-drawer-dismiss="true">Open
-                                                Data</a>
+                                                Data/PPID</a>
                                             <!--end::Menu link-->
                                         </div>
                                         <!--end::Menu item-->
