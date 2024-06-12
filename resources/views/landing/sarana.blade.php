@@ -98,6 +98,16 @@
             <div class="col-md-3">
                 <div class="card shadow-lg">
                     <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Sangkarrang ( {{ $Sangkarrang }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Sangkarrang']) }}"
+                            class="btn btn-primary mt-2">Lihat
+                            Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
                         <div class="fw-bolder text-primary fs-3">Tallo ( {{ $Tallo }} )</div>
                         <a href="{{ route('detail-sarana', ['params' => 'Tallo']) }}" class="btn btn-primary mt-2">Lihat
                             Detail</a>
@@ -110,6 +120,15 @@
                         <div class="fw-bolder text-primary fs-3">Tamalanrea ( {{ $Tamalanrea }} )</div>
                         <a href="{{ route('detail-sarana', ['params' => 'Tamalanrea']) }}"
                             class="btn btn-primary mt-2">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Tamalate ( {{ $Tamalate }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Tamalate']) }}" class="btn btn-primary mt-2">Lihat
+                            Detail</a>
                     </div>
                 </div>
             </div>

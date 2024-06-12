@@ -167,10 +167,16 @@
                 text: "Rappocini"
             },
             {
+                text: "Sangkarrang"
+            },
+            {
                 text: "Tallo"
             },
             {
                 text: "Tamalanrea"
+            },
+            {
+                text: "Tamalate"
             },
             {
                 text: "Ujung Pandang"

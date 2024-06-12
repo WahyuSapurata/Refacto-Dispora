@@ -129,8 +129,10 @@ class Landing extends BaseController
         $Mariso = Sarana::where('kecamatan', 'Mariso')->count();
         $Panakkukang = Sarana::where('kecamatan', 'Panakkukang')->count();
         $Rappocini = Sarana::where('kecamatan', 'Rappocini')->count();
+        $Sangkarrang = Sarana::where('kecamatan', 'Sangkarrang')->count();
         $Tallo = Sarana::where('kecamatan', 'Tallo')->count();
         $Tamalanrea = Sarana::where('kecamatan', 'Tamalanrea')->count();
+        $Tamalate = Sarana::where('kecamatan', 'Tamalate')->count();
         $Ujung_Pandang = Sarana::where('kecamatan', 'Ujung Pandang')->count();
         $Ujung_Tanah = Sarana::where('kecamatan', 'Ujung Tanah')->count();
         $Wajo = Sarana::where('kecamatan', 'Wajo')->count();
@@ -144,8 +146,10 @@ class Landing extends BaseController
             'Mariso',
             'Panakkukang',
             'Rappocini',
+            'Sangkarrang',
             'Tallo',
             'Tamalanrea',
+            'Tamalate',
             'Ujung_Pandang',
             'Ujung_Tanah',
             'Wajo',

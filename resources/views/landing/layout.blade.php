@@ -430,7 +430,7 @@
                                 <!--begin::Menu link-->
                                 <a class="menu-link nav-link py-3 px-4 px-xxl-6" href=""
                                     data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Open
-                                    Data</a>
+                                    Data/PPID</a>
                                 <!--end::Menu link-->
                             </div>
                             <!--end::Menu item-->
