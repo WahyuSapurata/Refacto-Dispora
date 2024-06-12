@@ -28,7 +28,7 @@
         </div>
         <div class="px-20 py-20">
             <table class="table table-striped table-rounded border border-gray-300 table-row-bordered table-row-gray-300">
-                <thead class="text-center">
+                <thead>
                     <tr class="fw-bolder fs-6 text-gray-800">
                         <th>Nama Fasilitas Olahraga</th>
                         <th>Alamat</th>

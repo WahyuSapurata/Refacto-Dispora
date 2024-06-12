@@ -46191,7 +46191,7 @@ code:not([class*="language-"]) {
     min-height: inherit;
 }
 
-.table td:first-child,
+/* .table td:first-child,
 .table th:first-child,
 .table tr:first-child {
     padding-left: 0;
@@ -46201,7 +46201,7 @@ code:not([class*="language-"]) {
 .table th:last-child,
 .table tr:last-child {
     padding-right: 0;
-}
+} */
 
 .table tbody tr:last-child,
 .table tfoot tr:last-child {
