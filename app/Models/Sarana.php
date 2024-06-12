@@ -14,13 +14,11 @@ class Sarana extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'uuid',
-        'nama_sarana',
+        'nama_fasilitas',
         'slug',
-        'kategori',
-        'konten',
-        'lokasi',
-        'status',
-        'foto',
+        'alamat',
+        'kecamatan',
+        'kelurahan',
     ];
 
     protected static function boot()

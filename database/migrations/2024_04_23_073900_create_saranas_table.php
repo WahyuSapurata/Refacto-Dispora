@@ -14,13 +14,11 @@ return new class extends Migration
         Schema::create('saranas', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
-            $table->string('nama_sarana');
+            $table->string('nama_fasilitas');
             $table->string('slug');
-            $table->string('kategori');
-            $table->text('konten')->nullable();
-            $table->string('lokasi');
-            $table->string('status');
-            $table->string('foto')->nullable();
+            $table->string('alamat');
+            $table->string('kecamatan');
+            $table->string('kelurahan');
             $table->timestamps();
         });
     }

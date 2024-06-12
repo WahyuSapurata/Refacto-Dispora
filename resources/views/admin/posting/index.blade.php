@@ -30,6 +30,7 @@
                                         <tr class="fw-bolder fs-6 text-gray-800">
                                             <th>No</th>
                                             <th>Judul</th>
+                                            <th>Konten</th>
                                             <th>Status</th>
                                             <th>Kategori</th>
                                             <th>Tanggal Upload</th>
@@ -101,6 +102,9 @@
                     },
                     {
                         data: 'judul',
+                        className: 'text-center',
+                    }, {
+                        data: 'konten',
                         className: 'text-center',
                     }, {
                         data: 'status',

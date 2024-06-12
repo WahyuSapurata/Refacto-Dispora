@@ -29,11 +29,11 @@
                                     <thead class="text-center">
                                         <tr class="fw-bolder fs-6 text-gray-800">
                                             <th>No</th>
-                                            <th>Sarana</th>
-                                            <th>Konten</th>
-                                            <th>Lokasi</th>
-                                            <th>Status</th>
-                                            <th>Foto</th>
+                                            <th>Nama Fasilitas Olahraga</th>
+                                            <th>Slug</th>
+                                            <th>Alamat</th>
+                                            <th>Kecamatan</th>
+                                            <th>Kelurahan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -82,8 +82,6 @@
                 $('#kt_table_data').DataTable().clear().destroy();
             }
 
-            var groupedData = {}; // Menyimpan nilai grup sebelumnya
-
             // Initialize DataTable
             $('#kt_table_data').DataTable({
                 responsive: true,
@@ -100,42 +98,20 @@
                         }
                     },
                     {
-                        data: 'nama_sarana',
+                        data: 'nama_fasilitas',
                         className: 'text-center',
                     }, {
-                        data: 'konten',
+                        data: 'slug',
                         className: 'text-center',
                     }, {
-                        data: 'lokasi',
+                        data: 'alamat',
                         className: 'text-center',
                     }, {
-                        data: 'status',
+                        data: 'kecamatan',
                         className: 'text-center',
                     }, {
-                        data: 'foto',
+                        data: 'kelurahan',
                         className: 'text-center',
-                        render: function(data, type, row, meta) {
-                            let result;
-                            result =
-                                `
-                                <!--begin::Overlay-->
-                                <a class="d-block overlay fancybox" data-fancybox="lightbox-group" href="{{ asset('/sarana/${data}') }}">
-                                    <!--begin::Image-->
-                                    <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px"
-                                        style="background-image:url('/sarana/${data}')">
-                                    </div>
-                                    <!--end::Image-->
-
-                                    <!--begin::Action-->
-                                    <div class="overlay-layer card-rounded bg-dark bg-opacity-25 shadow">
-                                        <i class="bi bi-eye-fill text-white fs-3x"></i>
-                                    </div>
-                                    <!--end::Action-->
-                                </a>
-                                <!--end::Overlay-->
-                            `;
-                            return result;
-                        }
                     }, {
                         data: 'uuid',
                     }

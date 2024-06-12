@@ -39,44 +39,29 @@
                                 <input type="hidden" name="uuid">
 
                                 <div class="mb-10">
-                                    <label class="form-label">Nama Sarana</label>
-                                    <input type="text" id="nama_sarana" class="form-control" name="nama_sarana">
-                                    <small class="text-danger nama_sarana_error"></small>
+                                    <label class="form-label">Nama Fasilitas Olahraga</label>
+                                    <input type="text" id="nama_fasilitas" class="form-control" name="nama_fasilitas">
+                                    <small class="text-danger nama_fasilitas_error"></small>
                                 </div>
 
                                 <div class="mb-10">
-                                    <label class="form-label">Konten</label>
-                                    <textarea id="konten" name="konten"></textarea>
-                                    <small class="text-danger konten_error"></small>
+                                    <label class="form-label">Alamat</label>
+                                    <input type="text" id="alamat" class="form-control" name="alamat">
+                                    <small class="text-danger alamat_error"></small>
                                 </div>
 
                                 <div class="mb-10">
-                                    <label class="form-label">Lokasi</label>
-                                    <input type="text" id="lokasi" class="form-control" name="lokasi">
-                                    <small class="text-danger lokasi_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">Kategori</label>
-                                    <select name="kategori" class="form-select" data-control="select2"
-                                        id="from_select_sarana" data-placeholder="Pilih jenis inputan">
+                                    <label class="form-label">Kecamatan</label>
+                                    <select name="kecamatan" class="form-select" data-control="select2"
+                                        id="from_select_kecamatan" data-placeholder="Pilih jenis inputan">
                                     </select>
-                                    <small class="text-danger kategori_error"></small>
+                                    <small class="text-danger kecamatan_error"></small>
                                 </div>
 
                                 <div class="mb-10">
-                                    <label class="form-label">Status</label>
-                                    <select name="status" class="form-select" data-control="select2" id="from_select"
-                                        data-placeholder="Pilih jenis inputan">
-                                    </select>
-                                    <small class="text-danger status_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label for="foto" class="form-label">Foto</label>
-                                    <input class="form-control" accept="image/*" type="file" name="foto"
-                                        id="foto">
-                                    <small class="text-danger foto_error"></small>
+                                    <label class="form-label">Kelurahan</label>
+                                    <input type="text" id="kelurahan" class="form-control" name="kelurahan">
+                                    <small class="text-danger kelurahan_error"></small>
                                 </div>
 
                                 <div class="separator separator-dashed mt-8 mb-5"></div>
@@ -99,19 +84,6 @@
 @section('script')
     <script>
         let control = new Control();
-
-        var options = {
-            selector: "#konten",
-            height: "480"
-        };
-        tinymce.init(options);
-
-        $(".kt_datepicker_7").flatpickr({
-            altInput: true,
-            altFormat: "d-m-Y",
-            dateFormat: "d-m-Y",
-            mode: "range",
-        });
 
         $(document).on('click', '#button-side-form', function() {
             window.history.back();
@@ -166,23 +138,49 @@
             });
         });
 
-        const status = [{
-            text: "Aktiv"
-        }, {
-            text: "Tidak"
-        }];
-
-        const kategori = [{
-            text: "Lapangan"
-        }, {
-            text: "Stadion"
-        }, {
-            text: "Gedung"
-        }];
+        const kecamatan = [{
+                text: "Biringkanaya"
+            },
+            {
+                text: "Bontoala"
+            },
+            {
+                text: "Makassar"
+            },
+            {
+                text: "Mamajang"
+            },
+            {
+                text: "Manggala"
+            },
+            {
+                text: "Mariso"
+            },
+            {
+                text: "Panakkukang"
+            },
+            {
+                text: "Rappocini"
+            },
+            {
+                text: "Tallo"
+            },
+            {
+                text: "Tamalanrea"
+            },
+            {
+                text: "Ujung Pandang"
+            },
+            {
+                text: "Ujung Tanah"
+            },
+            {
+                text: "Wajo"
+            }
+        ];
 
         $(function() {
-            control.push_select3(status, '#from_select');
-            control.push_select3(kategori, '#from_select_sarana');
+            control.push_select3(kecamatan, '#from_select_kecamatan');
         });
     </script>
 @endsection

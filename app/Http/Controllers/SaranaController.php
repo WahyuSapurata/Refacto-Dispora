@@ -42,22 +42,13 @@ class SaranaController extends BaseController
     {
         $data = array();
 
-        $newFoto = '';
-        if ($storeSaranaRequest->file('foto')) {
-            $extension = $storeSaranaRequest->file('foto')->extension();
-            $newFoto = $storeSaranaRequest->nama_sarana . '-' . now()->timestamp . '.' . $extension;
-            $storeSaranaRequest->file('foto')->storeAs('sarana', $newFoto);
-        }
-
         try {
             $data = new Sarana();
-            $data->nama_sarana = $storeSaranaRequest->nama_sarana;
-            $data->slug = Str::slug($storeSaranaRequest->nama_sarana);
-            $data->kategori = $storeSaranaRequest->kategori;
-            $data->konten = $storeSaranaRequest->konten;
-            $data->lokasi = $storeSaranaRequest->lokasi;
-            $data->status = $storeSaranaRequest->status;
-            $data->foto = $newFoto;
+            $data->nama_fasilitas = $storeSaranaRequest->nama_fasilitas;
+            $data->slug = Str::slug($storeSaranaRequest->nama_fasilitas);
+            $data->alamat = $storeSaranaRequest->alamat;
+            $data->kecamatan = $storeSaranaRequest->kecamatan;
+            $data->kelurahan = $storeSaranaRequest->kelurahan;
             $data->save();
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
@@ -78,31 +69,13 @@ class SaranaController extends BaseController
 
     public function update(StoreSaranaRequest $storeSaranaRequest, $params)
     {
-        $data = Sarana::where('uuid', $params)->first();
-
-        // Simpan nama foto lama untuk dihapus
-        $oldFotoPath = public_path('sarana/' . $data->foto);
-
-        $newFoto = '';
-        if ($storeSaranaRequest->file('foto')) {
-            $extension = $storeSaranaRequest->file('foto')->extension();
-            $newFoto = $storeSaranaRequest->nama_sarana . '-' . now()->timestamp . '.' . $extension;
-            $storeSaranaRequest->file('foto')->move(public_path('sarana'), $newFoto);
-
-            // Hapus foto lama jika ada
-            if (File::exists($oldFotoPath)) {
-                File::delete($oldFotoPath);
-            }
-        }
-
         try {
-            $data->nama_sarana = $storeSaranaRequest->nama_sarana;
-            $data->slug = Str::slug($storeSaranaRequest->nama_sarana);
-            $data->kategori = $storeSaranaRequest->kategori;
-            $data->konten = $storeSaranaRequest->konten;
-            $data->lokasi = $storeSaranaRequest->lokasi;
-            $data->status = $storeSaranaRequest->status;
-            $data->foto = $storeSaranaRequest->file('foto') ? $newFoto : $data->foto;
+            $data = Sarana::where('uuid', $params)->first();
+            $data->nama_fasilitas = $storeSaranaRequest->nama_fasilitas;
+            $data->slug = Str::slug($storeSaranaRequest->nama_fasilitas);
+            $data->alamat = $storeSaranaRequest->alamat;
+            $data->kecamatan = $storeSaranaRequest->kecamatan;
+            $data->kelurahan = $storeSaranaRequest->kelurahan;
             $data->save();
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
@@ -116,12 +89,6 @@ class SaranaController extends BaseController
         $data = array();
         try {
             $data = Sarana::where('uuid', $params)->first();
-            // Simpan nama foto lama untuk dihapus
-            $oldFotoPath = public_path('sarana/' . $data->foto);
-            // Hapus foto lama jika ada
-            if (File::exists($oldFotoPath)) {
-                File::delete($oldFotoPath);
-            }
             $data->delete();
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);

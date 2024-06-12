@@ -22,22 +22,20 @@ class StoreSaranaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_sarana' => 'required',
-            'kategori' => 'required',
-            'konten' => 'required',
-            'lokasi' => 'required',
-            'status' => 'required',
+            'nama_fasilitas' => 'required',
+            'alamat' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'nama_sarana.required' => 'Kolom nama sarana harus di isi.',
-            'kategori.required' => 'Kolom kategori harus di isi.',
-            'konten.required' => 'Kolom konten harus di isi.',
-            'lokasi.required' => 'Kolom lokasi harus di isi.',
-            'status.required' => 'Kolom status harus di isi.',
+            'nama_fasilitas.required' => 'Kolom nama fasilitas olahraga harus di isi.',
+            'alamat.required' => 'Kolom alamat harus di isi.',
+            'kecamatan.required' => 'Kolom kecamatan harus di isi.',
+            'kelurahan.required' => 'Kolom kelurahan harus di isi.',
         ];
     }
 }

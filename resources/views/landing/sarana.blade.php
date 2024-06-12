@@ -22,36 +22,124 @@
             </div>
         </div>
         <div class="row" style="row-gap: 20px">
-            @foreach ($data as $item)
-                <div class="col-md-3">
-                    <div class="card shadow-lg">
-                        <div class="card-body d-grid">
-                            <div class="fw-bolder text-primary fs-3">{{ $item->lokasi }}</div>
-                            <a href="{{ route('detail-sarana', ['params' => $item->slug]) }}"
-                                class="btn btn-primary mt-2">Lihat
-                                Detail</a>
-                        </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Biringkanaya ( {{ $Biringkanaya }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Biringkanaya']) }}"
+                            class="btn btn-primary mt-2">Lihat Detail</a>
                     </div>
                 </div>
-            @endforeach
-            <ul class="pagination">
-                <!-- Link navigasi untuk halaman sebelumnya -->
-                <li class="page-item previous {{ $data->previousPageUrl() ? '' : 'disabled' }}">
-                    <a href="{{ $data->previousPageUrl() }}" class="page-link"><i class="previous"></i></a>
-                </li>
-
-                <!-- Link navigasi untuk setiap halaman -->
-                @for ($i = 1; $i <= $data->lastPage(); $i++)
-                    <li class="page-item {{ $i == $data->currentPage() ? 'active' : '' }}">
-                        <a href="{{ $data->url($i) }}" class="page-link">{{ $i }}</a>
-                    </li>
-                @endfor
-
-                <!-- Link navigasi untuk halaman berikutnya -->
-                <li class="page-item next {{ $data->nextPageUrl() ? '' : 'disabled' }}">
-                    <a href="{{ $data->nextPageUrl() }}" class="page-link"><i class="next"></i></a>
-                </li>
-            </ul>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Bontoala ( {{ $Bontoala }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Bontoala']) }}" class="btn btn-primary mt-2">Lihat
+                            Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Makassar ( {{ $Makassar }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Makassar']) }}" class="btn btn-primary mt-2">Lihat
+                            Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Mamajang ( {{ $Mamajang }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Mamajang']) }}" class="btn btn-primary mt-2">Lihat
+                            Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Manggala ( {{ $Manggala }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Manggala']) }}" class="btn btn-primary mt-2">Lihat
+                            Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Mariso ( {{ $Mariso }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Mariso']) }}" class="btn btn-primary mt-2">Lihat
+                            Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Panakkukang ( {{ $Panakkukang }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Panakkukang']) }}"
+                            class="btn btn-primary mt-2">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Rappocini ( {{ $Rappocini }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Rappocini']) }}"
+                            class="btn btn-primary mt-2">Lihat
+                            Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Tallo ( {{ $Tallo }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Tallo']) }}" class="btn btn-primary mt-2">Lihat
+                            Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Tamalanrea ( {{ $Tamalanrea }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Tamalanrea']) }}"
+                            class="btn btn-primary mt-2">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Ujung Pandang ( {{ $Ujung_Pandang }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Ujung Pandang']) }}"
+                            class="btn btn-primary mt-2">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Ujung Tanah ( {{ $Ujung_Tanah }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Ujung Tanah']) }}"
+                            class="btn btn-primary mt-2">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-body d-grid">
+                        <div class="fw-bolder text-primary fs-3">Wajo ( {{ $Wajo }} )</div>
+                        <a href="{{ route('detail-sarana', ['params' => 'Wajo']) }}" class="btn btn-primary mt-2">Lihat
+                            Detail</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

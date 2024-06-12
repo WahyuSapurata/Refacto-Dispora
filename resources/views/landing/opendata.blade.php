@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="fs-lg-2x fw-bolder">
-                                Open Data Dispora
+                                Open Data/PPID
                             </div>
                         </div>
                         <div class="col-md-4">

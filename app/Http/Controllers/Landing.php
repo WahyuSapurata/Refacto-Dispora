@@ -121,12 +121,39 @@ class Landing extends BaseController
     public function sarana()
     {
         $module = 'Sarana';
-        $data = Sarana::where('status', 'Aktiv')->paginate(9);
-        return view('landing.sarana', compact('module', 'data'));
+        $Biringkanaya = Sarana::where('kecamatan', 'Biringkanaya')->count();
+        $Bontoala = Sarana::where('kecamatan', 'Bontoala')->count();
+        $Makassar = Sarana::where('kecamatan', 'Makassar')->count();
+        $Mamajang = Sarana::where('kecamatan', 'Mamajang')->count();
+        $Manggala = Sarana::where('kecamatan', 'Manggala')->count();
+        $Mariso = Sarana::where('kecamatan', 'Mariso')->count();
+        $Panakkukang = Sarana::where('kecamatan', 'Panakkukang')->count();
+        $Rappocini = Sarana::where('kecamatan', 'Rappocini')->count();
+        $Tallo = Sarana::where('kecamatan', 'Tallo')->count();
+        $Tamalanrea = Sarana::where('kecamatan', 'Tamalanrea')->count();
+        $Ujung_Pandang = Sarana::where('kecamatan', 'Ujung Pandang')->count();
+        $Ujung_Tanah = Sarana::where('kecamatan', 'Ujung Tanah')->count();
+        $Wajo = Sarana::where('kecamatan', 'Wajo')->count();
+        return view('landing.sarana', compact(
+            'module',
+            'Biringkanaya',
+            'Bontoala',
+            'Makassar',
+            'Mamajang',
+            'Manggala',
+            'Mariso',
+            'Panakkukang',
+            'Rappocini',
+            'Tallo',
+            'Tamalanrea',
+            'Ujung_Pandang',
+            'Ujung_Tanah',
+            'Wajo',
+        ));
     }
     public function detail_sarana($params)
     {
-        $data = Sarana::where('slug', $params)->first();
+        $data = Sarana::where('kecamatan', $params)->get();
         $module = $params;
         return view('lading.detailsarana', compact('module', 'data'));
     }

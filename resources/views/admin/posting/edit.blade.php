@@ -183,7 +183,7 @@
                                 const fileName = y; // Nama file yang diunggah
                                 const fileInfoContainer = $(
                                     "#fileInfoContainer"
-                                    ); // Ganti dengan ID atau kelas sesuai kebutuhan
+                                ); // Ganti dengan ID atau kelas sesuai kebutuhan
                                 fileInfoContainer.html(
                                     `<a href="/posting/${fileName}" target="_blank" class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
                                         <div class="d-flex justify-content-center align-items-center" style="gap: 5px; color: red;">
