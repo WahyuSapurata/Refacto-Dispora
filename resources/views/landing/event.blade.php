@@ -48,7 +48,7 @@
                             <div class="fw-bolder text-primary fs-5">{{ $item->nama_event }}</div>
                             <div class="fs-6">{{ $item->tanggal }}</div>
                             <div class="fs-6 fw-bolder">{{ $item->lokasi }}</div>
-                            <div>{{ $teks_pendek }}</div>
+                            <div>{!! $teks_pendek !!}</div>
                             <a href="{{ route('detail-event', ['params' => $item->slug]) }}"
                                 class="btn btn-primary mt-2">Lihat Detail</a>
                         </div>
