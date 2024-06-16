@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="py-10 px-20 fs-6">
-            {{ strip_tags($data->konten) }}
+            {{ $data->konten }}
         </div>
         <div class="px-20 d-grid gap-2">
             <div class="fw-bolder">Like dan Bagikan ke :</div>
