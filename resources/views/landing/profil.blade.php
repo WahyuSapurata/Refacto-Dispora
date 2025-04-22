@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-5">
+            {{-- <div class="col-md-5">
                 <div class="position-relative shadow-lg">
                     <img src="https://dispora.makassarkota.go.id/images/favicon/f833f05da7f7c325ebc939b3273dee91.jpg"
                         class="w-100 rounded-2" alt="">
@@ -33,28 +33,42 @@
                         <a href=""><i class="bi bi-instagram text-primary fs-1"></i></a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-7">
-                <div class="fs-1 fw-bolder">Andi Patiware Bau Djemma, S.STP, MM</div>
-                <div class="fs-1 fw-bolder text-decoration-underline">Kadispora Kota Makassar.</div>
-                <table class="mt-5 fs-5">
-                    <tr>
-                        <td class="fw-bolder">NIP</td>
-                        <td>:</td>
-                        <td>19830402 200112 1 001</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bolder">Tempat, Tgl Lahir</td>
-                        <td>:</td>
-                        <td>Ujung Pandang, 02 Apr 1983</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bolder">Agama</td>
-                        <td>:</td>
-                        <td>Islam</td>
-                    </tr>
-                </table>
-                <table class="fs-5">
+            </div> --}}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="fs-1 fw-bolder">Drs. Andi Muhammad Yasir, M.Si</div>
+                    {{-- <div class="fs-1 fw-bolder text-decoration-underline">Plt Kepala Dinas Pemuda dan Olahraga.</div> --}}
+                    <table class="mt-5 fs-5">
+                        <tr>
+                            <td class="fw-bolder">NIP</td>
+                            <td>:</td>
+                            <td>19660510 198603 1 010</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bolder">Jabatan</td>
+                            <td>:</td>
+                            <td>Plt Kepala Dinas Pemuda dan Olahraga.</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="fs-1 fw-bolder">Andi Tenri Lengka, SH., M.Si</div>
+                    {{-- <div class="fs-1 fw-bolder text-decoration-underline">Plt Kepala Dinas Pemuda dan Olahraga.</div> --}}
+                    <table class="mt-5 fs-5">
+                        <tr>
+                            <td class="fw-bolder">NIP</td>
+                            <td>:</td>
+                            <td>19750604 199703 1 005</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bolder">Jabatan</td>
+                            <td>:</td>
+                            <td>Sekertaris Dinas Pemuda dan Olahraga.</td>
+                        </tr>
+                    </table>
+                </div>
+                {{-- <table class="fs-5">
                     <tr>
                         <td class="fw-bolder">Riwayat Pendidikan :</td>
                     </tr>
@@ -85,7 +99,7 @@
                             </ul>
                         </td>
                     </tr>
-                </table>
+                </table> --}}
             </div>
         </div>
     </div>
