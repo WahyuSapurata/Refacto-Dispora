@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\Galeri;
 use App\Models\Posting;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class Dashboard extends BaseController
 {
@@ -28,9 +29,12 @@ class Dashboard extends BaseController
 
     public function areaChart()
     {
-        $data = Posting::selectRaw('COUNT(id) as count, DATE_FORMAT(created_at, "%M") as month_name, MONTH(created_at) as month_num')
+        // Atur lokal Carbon ke Bahasa Indonesia
+        Carbon::setLocale('id');
+
+        $data = Posting::selectRaw('COUNT(id) as count, MONTH(created_at) as month_num')
             ->whereYear('created_at', '=', date('Y'))
-            ->groupByRaw('MONTH(created_at), DATE_FORMAT(created_at, "%M")')
+            ->groupByRaw('MONTH(created_at)')
             ->orderByRaw('month_num')
             ->get();
 
@@ -40,7 +44,11 @@ class Dashboard extends BaseController
         ];
 
         foreach ($data as $row) {
-            $result['label'][] = $row->month_name;
+            // Gunakan Carbon untuk mendapatkan nama bulan dari angka bulan
+            $carbon = Carbon::createFromDate(null, $row->month_num, 1);
+            $namaBulan = $carbon->translatedFormat('F'); // "F" = nama bulan lengkap
+
+            $result['label'][] = $namaBulan;
             $result['data'][] = (int) $row->count;
         }
 
