@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div> --}}
-            <div class="row">
+            <div class="row gap-md-0 gap-5">
                 <div class="col-md-6">
                     <div class="fs-1 fw-bolder">Drs. Andi Muhammad Yasir, M.Si</div>
                     {{-- <div class="fs-1 fw-bolder text-decoration-underline">Plt Kepala Dinas Pemuda dan Olahraga.</div> --}}
