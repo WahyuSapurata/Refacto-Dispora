@@ -29,9 +29,10 @@ class Dashboard extends BaseController
     public function areaChart()
     {
         // Mendapatkan data dari database menggunakan query builder Laravel
-        $data = Posting::selectRaw('COUNT(id) as count, TO_CHAR(created_at, \'Month\') as month_name')
+        $data = Posting::selectRaw('COUNT(id) as count, DATE_FORMAT(created_at, "%M") as month_name')
             ->whereYear('created_at', '=', date('Y'))
-            ->groupByRaw('TO_CHAR(created_at, \'Month\')')
+            ->groupByRaw('MONTH(created_at)')
+            ->orderByRaw('MONTH(created_at)')
             ->get();
 
         // Inisialisasi array data
